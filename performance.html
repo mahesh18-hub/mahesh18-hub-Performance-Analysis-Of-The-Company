@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<a href="/" class="back-btn">⬅ Back</a>
+<div class="sidebar">
+<a href="/dashboard">Employee Details</a>
+<a href="/performance/2019">2019</a>
+<a href="/performance/2020">2020</a>
+<a href="/performance/2021">2021</a>
+<a href="/performance/2022">2022</a>
+<a href="/performance/2023">2023</a>
+</div>
+
+<div class="content">
+<h1 class="year-title">{{year}} Performance</h1>
+<div class="grid">
+
+{% for m in ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] %}
+<div class="month-card">
+
+<h2 class="month-title">{{m}}</h2>
+
+<div class="row">
+    <span class="label">Present Days</span>
+    <span class="colon">:</span>
+    <span class="value">{{ emp[m+'_present_days'] }}</span>
+</div>
+
+<div class="row">
+    <span class="label">Absent Days</span>
+    <span class="colon">:</span>
+    <span class="value">{{ emp[m+'_absent_days'] }}</span>
+</div>
+
+<div class="row">
+    <span class="label">Projects Completed</span>
+    <span class="colon">:</span>
+    <span class="value">{{ emp[m+'_projects_completed'] }}</span>
+</div>
+
+</div>
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

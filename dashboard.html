@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+<div class="sidebar">
+<a href="/dashboard">Employee Details</a>
+<a href="/performance/2019">2019</a>
+<a href="/performance/2020">2020</a>
+<a href="/performance/2021">2021</a>
+<a href="/performance/2022">2022</a>
+<a href="/performance/2023">2023</a>
+</div>
+
+<div class="content">
+
+<h1 class="big-title"> Welcome To Employee Details</h1>
+
+<div class="details-card">
+
+{% for key, value in emp.items() %}
+<div class="row">
+    <span class="label">{{ key }}</span>
+    <span class="colon">:</span>
+    <span class="value">{{ value }}</span>
+</div>
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

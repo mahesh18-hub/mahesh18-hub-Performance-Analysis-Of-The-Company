@@ -1,0 +1,338 @@
+*{
+    text-decoration: none;
+}
+
+
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+}
+
+/* ================= TITLE ================= */
+.title {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 40px;   /* increase size */
+}
+/* ================= LOGIN ================= */
+.login-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 80px;
+    flex-wrap: wrap;   /* fix layout breaking */
+}
+
+/* ================= CARD ================= */
+.card {
+    background: white;
+    padding: 30px;
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* ================= INPUT ================= */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 15px 0;
+}
+
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    float: left;
+    background: #1e2a38;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 10px;
+    padding: 12px;
+    background: #34495e;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* ================= CONTENT ================= */
+.content {
+    margin-left: 240px;
+    padding: 30px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* ================= SCROLL ================= */
+.scroll {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+/* ================= GRID (FINAL FIXED) ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 5cm);  /* fixed width */
+    gap: 1cm;                                      /* exact gap */
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ================= FILE CARD ================= */
+.file-card {
+    width: 5cm;
+    height: 5cm;   /*  FIXED height */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    text-align: center;
+}
+
+/* ================= FILE NAME ================= */
+.file-name {
+    font-weight: bold;
+    font-size: 14px;
+
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* ================= FILE BUTTONS ================= */
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ================= BUTTON COLORS ================= */
+.open-btn {
+    background: green;
+    color: white;
+    padding: 5px 10px;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+}
+
+/* ================= MONTH CARDS ================= */
+.month-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.month-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* ================= TEXT ================= */
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+/* ================= BACK BUTTON ================= */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    background: #8a2be2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/* ================= DETAILS ================= */
+.details-card {
+    background: white;
+    padding: 40px;
+    margin: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-size: 22px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.label {
+    width: 250px;
+    font-weight: bold;
+}
+
+.colon {
+    width: 30px;
+    text-align: center;
+}
+
+.value {
+    flex: 1;
+}
+
+/* ================= DECISION ================= */
+.decision-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* CARD FIX */
+.decision-card {
+    width: 80vw;        /* 80% of screen width */
+    max-width: none;    /*  remove restriction */
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* INPUT + TEXTAREA MATCH */
+input, textarea {
+    width: 95%;   /* fill card nicely */
+    padding: 12px;
+    margin: 15px auto;
+    display: block;
+}
+
+textarea {
+    height: 250px;   /* bigger typing area */
+}
+
+/* TEAM CARD FIX */
+.team-card {
+    width: 5cm;
+    height: 5cm;
+
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 5cm);
+    gap: 1cm;
+    justify-content: center;
+    padding: 20px;
+}
+
+.file-card {
+    width: 5cm;
+    height: 5cm;
+
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    text-align: center;
+}
+
+.file-name {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+/* ICON */
+.file-icon {
+    font-size: 24px;
+}
+
+/* PREVIEW AREA */
+.preview {
+    height: 80px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* IMAGE PREVIEW */
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* VIDEO */
+.preview-video {
+    width: 100%;
+    height: 100%;
+}
+
+/* PDF / TXT */
+.preview-pdf {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

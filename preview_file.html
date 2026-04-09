@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Preview</title>
+</head>
+<body>
+
+<h2 style="text-align:center;">{{filename}}</h2>
+
+<div style="text-align:center; padding:20px;">
+
+<!-- PDF -->
+{% if filename.endswith('.pdf') %}
+<iframe src="/open/{{filename}}" width="90%" height="600px"></iframe>
+
+<!-- IMAGE -->
+{% elif filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg') %}
+<img src="/open/{{filename}}" width="70%">
+
+<!-- VIDEO -->
+{% elif filename.endswith('.mp4') %}
+<video controls width="70%">
+<source src="/open/{{filename}}">
+</video>
+
+<!-- AUDIO -->
+{% elif filename.endswith('.mp3') %}
+<audio controls>
+<source src="/open/{{filename}}">
+</audio>
+
+<!-- OTHER FILES -->
+{% else %}
+<p>Preview not supported. Click below:</p>
+<a href="/open/{{filename}}">Open File</a>
+{% endif %}
+
+</div>
+
+</body>
+</html>

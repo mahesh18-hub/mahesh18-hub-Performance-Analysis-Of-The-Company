@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<a href="/admin_dashboard" class="back-btn">⬅ Back</a>
+
+<h1 class="title">Better Decision Making</h1>
+
+<div class="login-container">
+<div class="card">
+
+<form method="post">
+
+<input name="team" placeholder="Enter Team Name">
+<input name="title" placeholder="Enter Title">
+
+<textarea name="content"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+{% if error %}<p class="error">{{error}}</p>{% endif %}
+{% if success %}<p class="success">{{success}}</p>{% endif %}
+
+</div>
+</div>
+
+</body>
+</html>

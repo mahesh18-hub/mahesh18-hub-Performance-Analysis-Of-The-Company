@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+<!-- 🔥 FAVICON -->
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+
+
+</head>
+
+<body>
+
+<h1 class="title">Performance Analysis Of The Company</h1>
+
+<div class="login-container">
+
+    <div class="card">
+    <h2>Employee Login</h2>
+
+    {% if emp_error %}
+    <p class="error">{{ emp_error }}</p>
+    {% endif %}
+
+    {% if emp_success %}
+    <p class="success">{{ emp_success }}</p>
+
+    <!-- Auto redirect -->
+    <script>
+        setTimeout(function(){
+            window.location.href = "/dashboard";
+        }, 2000);
+    </script>
+    {% endif %}
+
+    <form action="/employee_login" method="post">
+        <input name="emp_id" placeholder="Enter Employee ID">
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+    <!-- Management Login -->
+    <div class="card">
+        <h2>Management Login</h2>
+
+        {% if admin_error %}
+        <p class="error">{{ admin_error }}</p>
+        {% endif %}
+
+        {% if admin_success %}
+        <p class="success">{{ admin_success }}</p>
+        {% endif %}
+
+        <form action="/admin_login" method="post">
+            <input type="password" name="password" placeholder="Enter Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

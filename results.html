@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<a href="/admin_dashboard" class="back-btn">⬅ Back</a>
+
+<h1 class="title">Results</h1>
+
+<!-- 🔍 Search Bar -->
+<div style="text-align:center; margin:20px;">
+<input id="searchBox" placeholder="Search teams or files..." 
+       onkeyup="filterData()" 
+       style="width:50%; padding:10px;">
+</div>
+
+<!-- ================= TEAMS ================= -->
+<h2 class="title">Teams</h2>
+
+<div class="grid">
+{% for team in teams %}
+<a href="/team/{{team}}" class="team-card">
+    {{team}}
+</a>
+{% endfor %}
+</div>
+
+<!-- ================= FILES ================= -->
+{% if files %}
+<h2 class="title">Files</h2>
+
+<div class="grid">
+{% for file in files %}
+<div class="card file-card">
+
+<p class="file-name">{{file}}</p>
+
+<div class="file-actions">
+<a href="/open/{{team}}/{{file}}" target="_blank" class="open-btn">
+Open
+</a>
+<a href="/delete/{{team}}/{{file}}" class="delete-btn">Delete</a>
+</div>
+
+</div>
+{% endfor %}
+</div>
+{% endif %}
+
+<!-- 🔍 SEARCH SCRIPT -->
+<script>
+function filterData() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+
+    // 🔹 Filter Teams
+    let teams = document.getElementsByClassName("team-card");
+    for (let i = 0; i < teams.length; i++) {
+        let name = teams[i].innerText.toLowerCase();
+
+        if (name.includes(input)) {
+            teams[i].style.display = "";
+        } else {
+            teams[i].style.display = "none";
+        }
+    }
+
+    // 🔹 Filter Files
+    let files = document.getElementsByClassName("file-card");
+    for (let i = 0; i < files.length; i++) {
+        let fileName = files[i].querySelector(".file-name").innerText.toLowerCase();
+
+        if (fileName.includes(input)) {
+            files[i].style.display = "";
+        } else {
+            files[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

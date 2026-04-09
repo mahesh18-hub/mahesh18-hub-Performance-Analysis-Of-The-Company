@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<a href="/results" class="back-btn">⬅ Back</a>
+
+<h1 class="title">{{team}} Files</h1>
+
+<div class="grid">
+
+{% for file in files %}
+
+<div class="file-card">
+
+    <!-- ICON -->
+    <div class="file-icon">
+        {% if file.endswith('.pdf') %}
+            📄
+        {% elif file.endswith('.xlsx') or file.endswith('.csv') %}
+            📊
+        {% elif file.endswith('.mp4') or file.endswith('.mp3') %}
+            🎥
+        {% elif file.endswith('.ppt') or file.endswith('.pptx') %}
+            📽️
+        {% elif file.endswith('.txt') %}
+            📝
+        {% elif file.endswith('.link') %}
+            🔗
+        {% else %}
+            📁
+        {% endif %}
+    </div>
+
+    <!-- TITLE -->
+    <div class="file-name">
+        {{ file.replace('.link','').rsplit('.',1)[0] }}
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview">
+
+        {% if file.endswith('.png') or file.endswith('.jpg') or file.endswith('.jpeg') %}
+            <img src="/open/{{team}}/{{file}}" class="preview-img">
+
+        {% elif file.endswith('.mp4') %}
+            <video class="preview-video" controls>
+                <source src="/open/{{team}}/{{file}}">
+            </video>
+
+        {% elif file.endswith('.pdf') %}
+            <iframe src="/open/{{team}}/{{file}}" class="preview-pdf"></iframe>
+
+        {% elif file.endswith('.txt') %}
+            <iframe src="/open/{{team}}/{{file}}" class="preview-pdf"></iframe>
+
+        {% endif %}
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="file-actions">
+        <a href="/open/{{team}}/{{file}}" target="_blank" class="open-btn">Open</a>
+        <a href="/delete/{{team}}/{{file}}" class="delete-btn">Delete</a>
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
